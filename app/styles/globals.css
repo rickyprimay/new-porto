@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN TOKENS — CSS Custom Properties
+   Premium Clean Dark Theme
+   ============================================ */
+
+:root {
+  /* Core Colors — Deep, rich darks */
+  --color-bg-primary: #050508;
+  --color-bg-secondary: #0a0d14;
+  --color-bg-tertiary: #0f1219;
+  --color-bg-card: rgba(15, 18, 30, 0.6);
+  --color-bg-card-solid: #0f121e;
+  --color-bg-card-hover: rgba(20, 24, 42, 0.8);
+
+  /* Text — Clean hierarchy */
+  --color-text-primary: #eef0f6;
+  --color-text-secondary: #8892a8;
+  --color-text-muted: #4f5a72;
+
+  /* Accent — Indigo to Violet gradient spectrum */
+  --color-accent: #6366f1;
+  --color-accent-light: #818cf8;
+  --color-accent-soft: #a5b4fc;
+  --color-accent-glow: rgba(99, 102, 241, 0.25);
+  --color-accent-subtle: rgba(99, 102, 241, 0.06);
+
+  /* Borders — Ultra subtle */
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-light: rgba(255, 255, 255, 0.1);
+  --color-border-accent: rgba(99, 102, 241, 0.2);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(8, 10, 18, 0.75);
+  --glass-bg-light: rgba(15, 18, 30, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(20px);
+  --glass-blur-heavy: blur(40px);
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
+  --gradient-accent-soft: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%);
+  --gradient-section-divider: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.04) 50%, transparent);
+  --gradient-text: linear-gradient(135deg, #eef0f6 0%, #a5b4fc 50%, #818cf8 100%);
+  --gradient-glow: radial-gradient(ellipse at center, var(--color-accent-glow), transparent 70%);
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-size-hero: clamp(3rem, 7vw, 5.5rem);
+  --font-size-section-title: clamp(2rem, 4vw, 3.25rem);
+  --font-size-subtitle: clamp(1.25rem, 2vw, 1.75rem);
+  --font-size-body: clamp(0.9375rem, 1.1vw, 1.0625rem);
+  --font-size-caption: 0.8125rem;
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing — Generous for premium feel */
+  --section-padding-y: clamp(5rem, 10vh, 10rem);
+  --section-padding-x: clamp(1.5rem, 5vw, 6rem);
+  --container-max-width: 1140px;
+  --card-gap: 1.5rem;
+  --card-border-radius: 1rem;
+
+  /* Shadows */
+  --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px var(--color-accent-glow);
+  --shadow-glow-soft: 0 0 60px rgba(99, 102, 241, 0.12);
+
+  /* Transitions */
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  overflow-x: hidden;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: var(--line-height-tight);
+  font-weight: 700;
+}
+
+a {
+  color: var(--color-accent-light);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-soft);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ============================================
+   GLASS CARD UTILITY
+   ============================================ */
+
+.glass-card {
+  background: var(--glass-bg-light);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-border-radius);
+}
+
+/* ============================================
+   GRADIENT TEXT UTILITY
+   ============================================ */
+
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-light) 20%, var(--color-border-accent) 50%, var(--color-border-light) 80%, transparent);
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   SCROLLBAR — Minimal & clean
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: var(--color-text-primary);
+}
