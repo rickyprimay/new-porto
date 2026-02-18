@@ -9,7 +9,6 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <motion.article className="project-card" variants={scaleIn}>
-      {/* Project image */}
       {project.image && (
         <div className="project-card__image-wrapper">
           <img

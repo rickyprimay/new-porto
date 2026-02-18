@@ -42,21 +42,46 @@ export function CV() {
                 </div>
               ))}
 
-              {profile.certifications.length > 0 && (
+              {profile.organizationAndCommunities.length > 0 && (
                 <>
                   <h3 className="cv__column-title cv__column-title--mt">
-                    Certifications
+                    Organization and Communities
                   </h3>
-                  {profile.certifications.map((cert, i) => (
+                  {profile.organizationAndCommunities.map((org, i) => (
                     <div key={i} className="cv__cert-card">
-                      <h4 className="cv__cert-name">{cert.name}</h4>
+                      <h4 className="cv__cert-name">{org.name}</h4>
                       <p className="cv__cert-issuer">
-                        {cert.issuer} · {cert.year}
+                        {org.position} · {org.year}
                       </p>
                     </div>
                   ))}
                 </>
               )}
+
+              {/* Architecture Patterns */}
+              <h3 className="cv__column-title cv__column-title--mt">Architecture Patterns</h3>
+              <div className="cv__skill-section">
+                <h4 className="cv__skill-category">Mobile</h4>
+                <div className="cv__skill-items">
+                  {profile.architecture.mobile.map((item) => (
+                    <div key={item} className="cv__skill-item">
+                      <span className="cv__skill-dot" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="cv__skill-section">
+                <h4 className="cv__skill-category">Web</h4>
+                <div className="cv__skill-items">
+                  {profile.architecture.web.map((item) => (
+                    <div key={item} className="cv__skill-item">
+                      <span className="cv__skill-dot" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
             {/* Skills Column */}

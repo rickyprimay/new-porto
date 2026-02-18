@@ -19,21 +19,17 @@ export function About() {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {/* Section label */}
           <motion.p className="about__label" variants={fadeInUp}>
             About Me
           </motion.p>
 
-          {/* Heading */}
           <motion.h2 className="about__heading" variants={fadeInUp}>
             Passionate about building
             <br />
             <span className="about__heading-accent">digital experiences</span>
           </motion.h2>
 
-          {/* Three-column layout: image + bio + skills */}
           <div className="about__grid">
-            {/* Profile Image */}
             <motion.div className="about__image-wrapper" variants={fadeInLeft}>
               <div className="about__image-frame">
                 <img
@@ -45,13 +41,11 @@ export function About() {
               </div>
             </motion.div>
 
-            {/* Bio */}
             <motion.div className="about__bio" variants={fadeInUp}>
               <p>{profile.bio}</p>
               <p className="about__philosophy">{profile.philosophy}</p>
             </motion.div>
 
-            {/* Skills */}
             <motion.div className="about__skills" variants={fadeInRight}>
               {profile.skills.map((category) => (
                 <div key={category.category} className="about__skill-group">

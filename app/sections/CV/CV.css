@@ -47,7 +47,6 @@
   position: relative;
 }
 
-/* Gradient accent on title border */
 .cv__column-title::after {
   content: "";
   position: absolute;
@@ -63,7 +62,6 @@
   margin-top: 2.5rem;
 }
 
-/* ── Education ── */
 .cv__edu-card {
   margin-bottom: 1.75rem;
   padding-left: 1rem;

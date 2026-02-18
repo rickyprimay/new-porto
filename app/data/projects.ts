@@ -12,17 +12,6 @@ export interface ProjectEntry {
 
 export const projects: ProjectEntry[] = [
   {
-    id: "proj-senikita",
-    title: "Seni Kita",
-    description:
-      "A full-stack art marketplace built with Laravel and React.js. Features include art listings, payment gateway via Xendit, shipping cost calculation with Raja Ongkir, and real-time tracking.",
-    image: "/assets/projects/senikita.png",
-    techStack: ["Laravel", "React.js", "Bun", "Xendit", "Raja Ongkir"],
-    category: "Web",
-    liveUrl: "https://senikita.my.id",
-    featured: true,
-  },
-  {
     id: "proj-youapp",
     title: "YouApp Social",
     description:
@@ -45,17 +34,6 @@ export const projects: ProjectEntry[] = [
     featured: true,
   },
   {
-    id: "proj-cooksmart",
-    title: "Cook Smart",
-    description:
-      "iOS recipe management app built with SwiftUI, SQLite, Firebase, and Alamofire. Features meal planning by day/week/month using the Spoonacular API.",
-    image: "/assets/projects/cooksmart.png",
-    techStack: ["Swift", "SwiftUI", "Firebase", "SQLite"],
-    category: "iOS",
-    githubUrl: "https://github.com/rickyprimay/CookSmart",
-    featured: true,
-  },
-  {
     id: "proj-vehiloc",
     title: "Vehiloc App",
     description:
@@ -64,6 +42,48 @@ export const projects: ProjectEntry[] = [
     techStack: ["Flutter", "Google Maps", "WebSocket"],
     category: "Flutter",
     liveUrl: "https://apps.apple.com/id/app/vehiloc/id6478942877",
+    featured: true,
+  },
+  {
+    id: "proj-widya",
+    title: "Widya Mobile",
+    description:
+      "Comprehensive Learning Management System (LMS) designed to preserve Indonesian arts and culture through AI. Features include Batik identification, assignment review, and chatbot. Responsible for end-to-end development, UI/UX, and AI model integration.",
+    image: "/assets/projects/widya.jpg",
+    techStack: ["Flutter", "Dart", "AI/ML", "Python"],
+    category: "Flutter",
+    featured: true,
+  },
+  {
+    id: "proj-senikita-ios",
+    title: "SeniKita (iOS)",
+    description:
+      "A marketplace art platform featuring real-time tracking, secure payments, and AI-powered chatbot. Built backend with Laravel (RESTful APIs, Xendit, RajaOngkir, Gemini AI, ElevenLabs) and native iOS app with SwiftUI.",
+    image: "/assets/projects/senikita.jpg",
+    techStack: ["SwiftUI", "Laravel", "Gemini AI", "Xendit"],
+    category: "iOS",
+    featured: true,
+  },
+  {
+    id: "proj-senikita",
+    title: "Seni Kita",
+    description:
+      "A full-stack art marketplace built with Laravel and React.js. Features include art listings, payment gateway via Xendit, shipping cost calculation with Raja Ongkir, and real-time tracking.",
+    image: "/assets/projects/senikita.png",
+    techStack: ["Laravel", "React.js", "Bun", "Xendit", "Raja Ongkir"],
+    category: "Web",
+    liveUrl: "https://senikita.my.id",
+    featured: true,
+  },
+  {
+    id: "proj-cooksmart",
+    title: "Cook Smart",
+    description:
+      "iOS recipe management app built with SwiftUI, SQLite, Firebase, and Alamofire. Features meal planning by day/week/month using the Spoonacular API.",
+    image: "/assets/projects/cooksmart.png",
+    techStack: ["Swift", "SwiftUI", "Firebase", "SQLite"],
+    category: "iOS",
+    githubUrl: "https://github.com/rickyprimay/CookSmart",
     featured: true,
   },
   {
