@@ -11,7 +11,7 @@ import { Contact } from "~/sections/Contact/Contact";
 export function meta({}: Route.MetaArgs) {
   const title = "Ricky Primayuda Putra — Software Engineer";
   const description =
-    "Portfolio of Ricky Primayuda Putra — Software Engineer specializing in React, Flutter, and full-stack development. Crafting digital experiences with clean code and creative vision.";
+  "Portfolio of Ricky Primayuda Putra — Software Engineer crafting modern digital products with clean architecture, thoughtful user experiences, and a strong attention to detail.";
   const image = "https://www.rickyprimay.tech/assets/me.jpeg";
   const url = "https://www.rickyprimay.tech/";
 
@@ -22,7 +22,6 @@ export function meta({}: Route.MetaArgs) {
     { name: "author", content: "Ricky Primayuda Putra" },
     { name: "robots", content: "index, follow" },
     
-    // Open Graph
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:type", content: "website" },
@@ -30,7 +29,6 @@ export function meta({}: Route.MetaArgs) {
     { property: "og:image", content: image },
     { property: "og:site_name", content: "Ricky Primayuda Putra" },
     
-    // Twitter
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
