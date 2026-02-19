@@ -9,20 +9,33 @@ import { CV } from "~/sections/CV/CV";
 import { Contact } from "~/sections/Contact/Contact";
 
 export function meta({}: Route.MetaArgs) {
+  const title = "Ricky Primayuda Putra — Software Engineer";
+  const description =
+    "Portfolio of Ricky Primayuda Putra — Software Engineer specializing in React, Flutter, and full-stack development. Crafting digital experiences with clean code and creative vision.";
+  const image = "https://www.rickyprimay.tech/assets/me.jpeg";
+  const url = "https://www.rickyprimay.tech/";
+
   return [
-    { title: "Ricky Primayuda Putra — Software Engineer" },
-    {
-      name: "description",
-      content:
-        "Portfolio of Ricky Primayuda Putra — Software Engineer specializing in React, Flutter, and full-stack development.",
-    },
-    { property: "og:title", content: "Ricky Primayuda Putra — Software Engineer" },
-    {
-      property: "og:description",
-      content:
-        "Portfolio of Ricky Primayuda Putra — Software Engineer specializing in React, Flutter, and full-stack development.",
-    },
+    { title },
+    { name: "description", content: description },
+    { name: "keywords", content: "Ricky Primayuda Putra, Software Engineer, Mobile Developer, Web Developer, React, Next.js, Flutter, Portfolio, Frontend Engineer, Full Stack Developer" },
+    { name: "author", content: "Ricky Primayuda Putra" },
+    { name: "robots", content: "index, follow" },
+    
+    // Open Graph
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
     { property: "og:type", content: "website" },
+    { property: "og:url", content: url }, 
+    { property: "og:image", content: image },
+    { property: "og:site_name", content: "Ricky Primayuda Putra" },
+    
+    // Twitter
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "twitter:image", content: image },
+    { name: "twitter:creator", content: "@rickyprimay" },
   ];
 }
 
