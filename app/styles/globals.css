@@ -194,6 +194,29 @@ button {
 }
 
 /* ============================================
+   MOBILE DESIGN TOKEN OVERRIDES
+   ============================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: clamp(3rem, 8vh, 5rem);
+    --section-padding-x: 1rem;
+    --container-max-width: 100%;
+    --card-gap: 1rem;
+    --card-border-radius: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-hero: clamp(2.25rem, 9vw, 3rem);
+    --font-size-section-title: clamp(1.5rem, 5vw, 2rem);
+    --font-size-subtitle: clamp(1rem, 3vw, 1.25rem);
+    --section-padding-y: clamp(2.5rem, 6vh, 4rem);
+  }
+}
+
+/* ============================================
    REDUCED MOTION
    ============================================ */
 

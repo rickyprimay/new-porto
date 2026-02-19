@@ -1,3 +1,18 @@
+/* Scroll-linked radial glow */
+.contact__glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.04) 40%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .contact {
   display: flex;
   flex-direction: column;
@@ -12,6 +27,7 @@
   border-radius: 1.5rem;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 /* Subtle glow behind contact card */
@@ -151,5 +167,42 @@
 
   .contact__social-link {
     padding: 1rem;
+  }
+
+  .contact__glow {
+    width: 300px;
+    height: 300px;
+  }
+
+  .contact__email-btn {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.875rem;
+  }
+
+  .contact__footer {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 2rem 1rem;
+    gap: 1rem;
+  }
+
+  .contact__socials {
+    gap: 0.5rem;
+  }
+
+  .contact__social-link {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+  }
+
+  .contact__email-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8125rem;
+    width: 100%;
+    justify-content: center;
   }
 }

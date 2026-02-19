@@ -6,14 +6,12 @@ interface ParallaxSectionProps {
   id: string;
   children: ReactNode;
   className?: string;
-  /** Background theme variant */
   background?: "primary" | "secondary" | "gradient";
-  /** Full viewport height (default: false) */
   fullHeight?: boolean;
-  /** Parallax speed for content (0 = no parallax, larger = more movement) */
   parallaxSpeed?: number;
-  /** Show floating gradient orbs */
   showOrbs?: boolean;
+  /** Fade content at section edges */
+  edgeFade?: boolean;
 }
 
 export function ParallaxSection({
@@ -22,8 +20,9 @@ export function ParallaxSection({
   className = "",
   background = "primary",
   fullHeight = false,
-  parallaxSpeed = 0.05,
+  parallaxSpeed = 0.08,
   showOrbs = false,
+  edgeFade = false,
 }: ParallaxSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -32,8 +31,14 @@ export function ParallaxSection({
     offset: ["start end", "end start"],
   });
 
-  // Content parallax: subtle upward drift as section scrolls
-  const contentY = useTransform(scrollYProgress, [0, 1], ["2%", `-${parallaxSpeed * 100}%`]);
+  // Content parallax: subtle upward drift
+  const contentY = useTransform(scrollYProgress, [0, 1], ["3%", `-${parallaxSpeed * 100}%`]);
+  // Edge fade: content fades in at top and out at bottom
+  const edgeOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
+  // Orb parallax: orbs move at different speeds than content
+  const orb1Y = useTransform(scrollYProgress, [0, 1], ["10%", "-30%"]);
+  const orb2Y = useTransform(scrollYProgress, [0, 1], ["-5%", "25%"]);
+  const orb3Y = useTransform(scrollYProgress, [0, 1], ["15%", "-15%"]);
 
   const bgClass =
     background === "secondary"
@@ -48,11 +53,12 @@ export function ParallaxSection({
       ref={sectionRef}
       className={`parallax-section ${bgClass} ${className}`}
     >
-      {/* Floating gradient orbs */}
+      {/* Floating gradient orbs with scroll-linked parallax */}
       {showOrbs && (
         <div className="parallax-section__orbs" aria-hidden="true">
-          <div className="parallax-section__orb parallax-section__orb--1" />
-          <div className="parallax-section__orb parallax-section__orb--2" />
+          <motion.div className="parallax-section__orb parallax-section__orb--1" style={{ y: orb1Y }} />
+          <motion.div className="parallax-section__orb parallax-section__orb--2" style={{ y: orb2Y }} />
+          <motion.div className="parallax-section__orb parallax-section__orb--3" style={{ y: orb3Y }} />
         </div>
       )}
 
@@ -62,7 +68,10 @@ export function ParallaxSection({
       {/* Parallax-wrapped content */}
       <motion.div
         className="parallax-section__content"
-        style={{ y: contentY }}
+        style={{
+          y: contentY,
+          ...(edgeFade ? { opacity: edgeOpacity } : {}),
+        }}
       >
         {children}
       </motion.div>
@@ -122,36 +131,51 @@ export function ParallaxSection({
           position: absolute;
           border-radius: 50%;
           filter: blur(100px);
-          opacity: 0.3;
+          opacity: 0.25;
         }
 
         .parallax-section__orb--1 {
-          width: 400px;
-          height: 400px;
+          width: 450px;
+          height: 450px;
           background: rgba(99, 102, 241, 0.08);
           top: 10%;
-          right: -5%;
-          animation: orb-drift-1 15s ease-in-out infinite;
+          right: -8%;
+          animation: orb-drift-1 18s ease-in-out infinite;
         }
 
         .parallax-section__orb--2 {
-          width: 300px;
-          height: 300px;
+          width: 350px;
+          height: 350px;
           background: rgba(139, 92, 246, 0.06);
           bottom: 15%;
-          left: -5%;
-          animation: orb-drift-2 20s ease-in-out infinite;
+          left: -8%;
+          animation: orb-drift-2 22s ease-in-out infinite;
+        }
+
+        .parallax-section__orb--3 {
+          width: 250px;
+          height: 250px;
+          background: rgba(165, 180, 252, 0.05);
+          top: 50%;
+          left: 40%;
+          animation: orb-drift-3 16s ease-in-out infinite;
         }
 
         @keyframes orb-drift-1 {
-          0%, 100% { transform: translate(0, 0); }
-          33% { transform: translate(-20px, 15px); }
-          66% { transform: translate(15px, -10px); }
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(-25px, 18px) scale(1.05); }
+          66% { transform: translate(18px, -12px) scale(0.97); }
         }
 
         @keyframes orb-drift-2 {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(20px, -20px); }
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(22px, -25px) scale(1.03); }
+        }
+
+        @keyframes orb-drift-3 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          40% { transform: translate(-15px, 20px) scale(1.08); }
+          70% { transform: translate(10px, -15px) scale(0.95); }
         }
       `}</style>
     </section>

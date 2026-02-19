@@ -39,6 +39,21 @@
 .about__image-wrapper {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.about__orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12), transparent 70%);
+  filter: blur(60px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .about__image-frame {

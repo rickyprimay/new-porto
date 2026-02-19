@@ -235,4 +235,41 @@
   .exp-card__content {
     padding: 1.5rem;
   }
+
+  .work-exp__timeline {
+    padding-left: 1.75rem;
+  }
+
+  .exp-card__timeline-dot {
+    left: -1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exp-card__content {
+    padding: 1.125rem;
+  }
+
+  .work-exp__timeline {
+    padding-left: 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .exp-card__timeline-dot {
+    left: -1.25rem;
+    width: 10px;
+    height: 10px;
+  }
+
+  .work-exp__timeline-line {
+    left: 3px;
+  }
+
+  .exp-card__role {
+    font-size: 0.9375rem;
+  }
+
+  .exp-card__description {
+    font-size: 0.8125rem;
+  }
 }
