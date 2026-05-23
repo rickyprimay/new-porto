@@ -14,9 +14,34 @@ export interface ExperienceEntry {
 export const experiences: ExperienceEntry[] = [
   {
     id: "exp-1",
+    company: "PT. Bank Rakyat Indonesia (Persero) Tbk",
+    role: "Frontend Developer",
+    period: "March 2026 – Present",
+    location: "Jakarta Pusat, DKI Jakarta, Indonesia",
+    description:
+      "Frontend Developer with hands-on experience in developing and maintaining production-ready web applications for a global audience. Worked on various projects, contributing to feature development, performance optimization, and application scalability.",
+    highlights: [
+      "Worked on BRISPOT project. Contributed to feature development, performance optimization, and scalability",
+      "Specialized in Next.js with typescript and javascript for frontend development",
+      "Migrated legacy codebase in CodeIgniter to Next.js, improving maintainability and performance",
+      "Create Gateway microfrontend using Next.js and Module Federation, enabling seamless integration with existing applications and improving scalability",
+      "Collaborated closely with backend, UI/UX, and product teams to deliver stable, high-quality web features",
+      "Followed best practices in code structure, version control, and release management",
+    ],
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "CodeIgniter",
+      "Module Federation",
+      "Microfrontend Architecture",
+    ],
+  },
+  {
+    id: "exp-2 ",
     company: "YouApp Pte. Ltd",
     role: "Mobile Developer",
-    period: "October 2025 – January 2026",
+    period: "October 2025 – March 2026",
     location: "Semarang, Jawa Tengah, Indonesia",
     description:
       "Mobile Developer with hands-on experience in developing and maintaining production-ready mobile applications for a global audience. Worked on Mahabote Social App (Myanmar-based social platform published on the Apple App Store and Google Play Store) as well as YouApp, contributing to feature development, performance optimization, and application scalability.",
